@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Juego JQuery</title>
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/funciones.js"></script>
+    <script src="js/wordfind.js"></script>
+    <script src="js/wordfindgame.js"></script>
+</head>
+
+<body>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Sopa de letras</a></li>
+            <li><a href="#tabs-2">Ordene los numeros</a></li>
+            <li><a href="#tabs-3">Ordene las vocales</a></li>
+        </ul>
+        <div id="tabs-1">
+            <div class="toggler">
+                <div id="effect" class="ui-widget-content ui-corner-all ">
+                    <h3 class="ui-widget-header ui-corner-all">Sopa de letras</h3>
+                    <div id="dialog-message" title="Reglas del juego" align="center">
+                        <p>
+                            <b>Busca las palabras listadas, en la sopa de letras.</b>
+                        </p>
+                    </div>
+
+                    <div align="center">
+                        <div id='puzzle'></div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div id='words'></div>
+                    <div align="lefth">
+                        <div><button id='solve'>Resolver el juego</button></div>
+                    </div>
+                    <script>
+                        var words = ['Construir', 'Estudiar', 'Aprender', 'Mirar', 'Correr', 'Jugar'];
+                        var gamePuzzle = wordfindgame.create(words, '#puzzle', '#words');
+
+                        var puzzle = wordfind.newPuzzle(words, {
+                            height: 18,
+                            width: 18,
+                            fillBlanks: false
+                        });
+                        wordfind.print(puzzle);
+
+                        $('#solve').click(function() {
+                            wordfindgame.solve(gamePuzzle, words);
+                        });
+                    </script>
+                </div>
+            </div>
+            <button id="button" class="ui-state-default ui-corner-all">Modo oscuro</button>
+        </div>
+        <div id="tabs-2">
+            <div class="toggler">
+                <div id="effect" class="ui-widget-content ui-corner-all ">
+                    <h3 class="ui-widget-header ui-corner-all">Ordenar los números</h3>
+                    <br>
+                    <br>
+                    <div align="center">
+                        <ul id="sortable">
+                            <li class="ui-state-default">8</li>
+                            <li class="ui-state-default">1</li>
+                            <li class="ui-state-default">12</li>
+                            <li class="ui-state-default">7</li>
+                            <li class="ui-state-default">5</li>
+                            <li class="ui-state-default">3</li>
+                            <li class="ui-state-default">10</li>
+                            <li class="ui-state-default">6</li>
+                            <li class="ui-state-default">4</li>
+                            <li class="ui-state-default">9</li>
+                            <li class="ui-state-default">2</li>
+                            <li class="ui-state-default">11</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="tabs-3">
+            <div class="toggler">
+                <div id="effect" class="ui-widget-content ui-corner-all ">
+                    <h3 class="ui-widget-header ui-corner-all">Ordenar las vocales</h3>
+                    <br>
+                    <br>
+                    <div align="center">
+                        <ul id="sortable1">
+                            <li class="ui-state-default">E</li>
+                            <li class="ui-state-default">U</li>
+                            <li class="ui-state-default">I</li>
+                            <li class="ui-state-default">A</li>
+                            <li class="ui-state-default">O</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
